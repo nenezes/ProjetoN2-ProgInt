@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
+    public float speed;
+    public float jumpForce;
+    public Rigidbody rig;
+
+    float direction;
+
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        direction = Input.GetAxis("Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rig.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+        }
+
+    }
+
+    void FixedUpdate()
+    {
+        rig.velocity = new Vector2(direction * speed, rig.velocity.y);
     }
 }
