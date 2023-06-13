@@ -21,12 +21,12 @@ public class Player : MonoBehaviour
         }
 
         Instance = this;
-    }
+        /*
+        if (GameManager.Instance.nextSpawnPos == Vector3.zero) return;
 
-    void Start()
-    {
-        
+        this.transform.position = GameManager.Instance.nextSpawnPos;*/
     }
+    
     void Update()
     {
         direction = Input.GetAxis("Horizontal");
