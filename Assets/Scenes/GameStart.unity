@@ -297,7 +297,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1841479164
 MonoBehaviour:
@@ -312,6 +312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearLevels: 
+  boughtUpgrades: 
+  currentCoins: 332
   nextSpawnPos: {x: 0, y: 0, z: 0}
 --- !u!4 &1841479165
 Transform:

@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public string clearLevels = "";
+    public string boughtUpgrades = "";
+    
+    public int currentCoins;
     
     public Vector3 nextSpawnPos = Vector3.zero;
 
