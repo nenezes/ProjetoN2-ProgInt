@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     public float jumpForce;
     public Rigidbody rig;
 
+    [SerializeField] private float completionRadius = 2.5f;
+    [SerializeField] private LayerMask goalLayer;
+    
     float direction;
 
     private void Awake() {
@@ -36,10 +39,20 @@ public class Player : MonoBehaviour
             rig.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
         }
 
+
+        TryCompletion();
     }
 
     void FixedUpdate()
     {
         rig.velocity = new Vector2(direction * speed, rig.velocity.y);
+    }
+
+    private void TryCompletion() {
+        Collider[] hitCol = Physics.OverlapSphere(transform.position, completionRadius, goalLayer);
+
+        if (hitCol.Length > 0) {
+            hitCol[0].GetComponent<LevelGoal>().CompleteLevel();
+        }
     }
 }

@@ -185,6 +185,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3248136849257993628, guid: 8d522adacc1bb6940b11f2c81d2a3497,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3248136849882976327, guid: 8d522adacc1bb6940b11f2c81d2a3497,
         type: 3}
       propertyPath: m_Name
@@ -192,6 +197,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d522adacc1bb6940b11f2c81d2a3497, type: 3}
+--- !u!1 &1081833418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3248136849257993628, guid: 8d522adacc1bb6940b11f2c81d2a3497,
+    type: 3}
+  m_PrefabInstance: {fileID: 1081833417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1081833419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081833418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d8d5648d9a4b44fad6bb54ad4da304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myLevel: Level 5
 --- !u!1 &1247499075
 GameObject:
   m_ObjectHideFlags: 3
@@ -693,6 +717,10 @@ MonoBehaviour:
   speed: 7
   jumpForce: 7
   rig: {fileID: 1851751429}
+  completionRadius: 2.5
+  goalLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!54 &1851751429
 Rigidbody:
   m_ObjectHideFlags: 0

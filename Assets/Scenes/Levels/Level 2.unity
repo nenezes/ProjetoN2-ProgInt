@@ -471,8 +471,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2_Florest_two
       objectReference: {fileID: 0}
+    - target: {fileID: 7840739967885116892, guid: a77c4fc628f86244a8c3db17c567c0e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a77c4fc628f86244a8c3db17c567c0e5, type: 3}
+--- !u!1 &1508920475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7840739967885116892, guid: a77c4fc628f86244a8c3db17c567c0e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1508920474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1508920476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508920475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d8d5648d9a4b44fad6bb54ad4da304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myLevel: Level 2
 --- !u!1 &1742857348
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +717,10 @@ MonoBehaviour:
   speed: 7
   jumpForce: 7
   rig: {fileID: 1851751429}
+  completionRadius: 2.5
+  goalLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!54 &1851751429
 Rigidbody:
   m_ObjectHideFlags: 0

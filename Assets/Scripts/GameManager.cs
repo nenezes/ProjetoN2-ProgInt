@@ -13,12 +13,13 @@ public class GameManager : MonoBehaviour
     public Vector3 nextSpawnPos = Vector3.zero;
 
     private void Awake() {
-        if (Instance != null) {
-            Destroy(Instance.gameObject);
+        if (Instance == null) {
+            Debug.Log("Creating GameManager.");
             Instance = this;
         }
-
-        Instance = this;
+        else {
+            Destroy(gameObject.transform);
+        }
     }
     
     
