@@ -704,6 +704,7 @@ MonoBehaviour:
   chController: {fileID: 1851751426}
   speedUpDown: 3
   FPSInput: {fileID: 0}
+  chRb: {fileID: 0}
 --- !u!114 &1851751428
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,19 +8,23 @@ public class Ladder : MonoBehaviour
     bool inside = false;
     public float speedUpDown = 3.2f;
     public Player FPSInput;
+    [SerializeField] private Rigidbody chRb;
 
     void Start()
     {
         FPSInput = GetComponent<Player>();
         inside = false;
+        chRb = GetComponent<Rigidbody>();
+        speedUpDown = Player.Instance.speed;
     }
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Ladder")
-        {
-            FPSInput.enabled = false;
-            inside = !inside;
+        if (col.gameObject.tag == "Ladder") {
+            chRb.velocity = Vector3.zero;
+            FPSInput.canMove = false;
+            chRb.useGravity = false;
+            inside = true;
         }
     }
 
@@ -28,21 +32,27 @@ public class Ladder : MonoBehaviour
     {
         if (col.gameObject.tag == "Ladder")
         {
-            FPSInput.enabled = true;
-            inside = !inside;
+            FPSInput.canMove = true;
+            chRb.useGravity = true;
+            inside = false;
         }
     }
 
     void Update()
     {
-        if (inside == true && Input.GetKey("w"))
-        {
-            chController.transform.position += Vector3.up / speedUpDown;
-        }
-
-        if (inside == true && Input.GetKey("s"))
-        {
-            chController.transform.position += Vector3.down / speedUpDown;
+        if (inside) {
+            if (Input.GetKey(KeyCode.W)) {
+                chController.transform.position += (Vector3.up * (speedUpDown * Time.deltaTime));
+            }
+            if (Input.GetKey(KeyCode.S)) {
+                chController.transform.position += (Vector3.down * (speedUpDown * Time.deltaTime));
+            }
+            if (Input.GetKey(KeyCode.A)) {
+                chController.transform.position += (Vector3.left * (speedUpDown * Time.deltaTime));
+            }
+            if (Input.GetKey(KeyCode.D)) {
+                chController.transform.position += (Vector3.right * (speedUpDown * Time.deltaTime));
+            }
         }
     }
 }

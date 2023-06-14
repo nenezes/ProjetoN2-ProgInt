@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float completionRadius = 1.1f;
     [SerializeField] private LayerMask goalLayer, coinLayer;
     private float jumpBuffer;
+    public bool canMove = true;
     
     float direction;
     
@@ -69,7 +70,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        rig.velocity = new Vector2(direction * speed, rig.velocity.y);
+        if (canMove) rig.velocity = new Vector2(direction * speed, rig.velocity.y);
     }
 
     private void TryCompletion() {
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour
         if (hitCol.Length > 0) {
             foreach (var coin in hitCol) {
                 GameManager.Instance.currentCoins += (3 * GameManager.Instance.coinBonus);
-                Destroy(coin.gameObject);
+                Destroy(coin.transform.parent.gameObject);
             }
         }
     }
