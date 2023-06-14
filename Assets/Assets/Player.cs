@@ -15,8 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField] private bool isGrounded;
     [SerializeField] private bool canDoubleJump = false;
 
-    [SerializeField] private float completionRadius = 2.5f;
-    [SerializeField] private LayerMask goalLayer;
+    [SerializeField] private float completionRadius = 1.1f;
+    [SerializeField] private LayerMask goalLayer, coinLayer;
     private float jumpBuffer;
     
     float direction;
@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
 
 
         TryCompletion();
+        TryColect();
     }
 
     void FixedUpdate()
@@ -73,6 +74,17 @@ public class Player : MonoBehaviour
 
         if (hitCol.Length > 0) {
             hitCol[0].GetComponent<LevelGoal>().CompleteLevel();
+        }
+    }
+    
+    private void TryColect() {
+        Collider[] hitCol = Physics.OverlapSphere(transform.position, completionRadius, coinLayer);
+
+        if (hitCol.Length > 0) {
+            foreach (var coin in hitCol) {
+                GameManager.Instance.currentCoins += (3 * GameManager.Instance.coinBonus);
+                Destroy(coin.gameObject);
+            }
         }
     }
 }

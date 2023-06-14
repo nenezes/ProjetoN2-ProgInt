@@ -836,10 +836,13 @@ MonoBehaviour:
   rig: {fileID: 1851751429}
   isGrounded: 0
   canDoubleJump: 0
-  completionRadius: 2.5
+  completionRadius: 1.1
   goalLayer:
     serializedVersion: 2
     m_Bits: 128
+  coinLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!54 &1851751429
 Rigidbody:
   m_ObjectHideFlags: 0
