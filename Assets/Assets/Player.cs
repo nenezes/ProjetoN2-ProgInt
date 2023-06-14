@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class Player : MonoBehaviour
     }
 
     void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene("LevelSelection");
+        
         if (jumpBuffer > 0) jumpBuffer -= Time.deltaTime;
         
         if (Physics.Raycast(transform.position, Vector3.down, 1.1f) && jumpBuffer <= 0) {

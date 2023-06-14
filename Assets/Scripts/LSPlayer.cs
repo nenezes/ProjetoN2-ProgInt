@@ -13,6 +13,8 @@ public class LSPlayer : MonoBehaviour
         HandleMovement();
         
         if (Input.GetKeyDown(KeyCode.E)) TryInteraction();
+
+        if (Input.GetKeyDown(KeyCode.Space)) GameManager.Instance.currentCoins += 100;
     }
 
     private void HandleMovement() {

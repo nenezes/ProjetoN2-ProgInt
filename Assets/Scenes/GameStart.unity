@@ -313,7 +313,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clearLevels: 
   boughtUpgrades: 
-  currentCoins: 332
+  currentCoins: 10
+  hasDoubleJump: 0
+  jumpBonus: 0
+  moveBonus: 0
+  coinBonus: 1
   nextSpawnPos: {x: 0, y: 0, z: 0}
 --- !u!4 &1841479165
 Transform:

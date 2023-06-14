@@ -34,7 +34,7 @@ public class UpgradeSingle : MonoBehaviour
     }
 
     private bool IsBought() {
-        if (!GameManager.Instance.boughtUpgrades.Contains(upgradeID)) return false;
+        if (!GameManager.Instance.boughtUpgrades.Contains($"\"{upgradeID}\"")) return false;
 
         myButton.enabled = false;
         myButton.GetComponent<Image>().color = Color.green;
@@ -56,7 +56,7 @@ public class UpgradeSingle : MonoBehaviour
     }
 
     private void BuyUpgrade() {
-        GameManager.Instance.boughtUpgrades = $"{GameManager.Instance.boughtUpgrades}, {upgradeID}";
+        GameManager.Instance.boughtUpgrades = $"{GameManager.Instance.boughtUpgrades}, \"{upgradeID}\"";
         GameManager.Instance.currentCoins -= upgradeCost;
         ApplyModifier();
         IsBought();

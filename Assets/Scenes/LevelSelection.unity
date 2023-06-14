@@ -5384,6 +5384,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7491295408189017975, guid: e34d07c9cbb27704ca3ee0bd633ed06b,
         type: 3}
+      propertyPath: upgradeCost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491295408189017975, guid: e34d07c9cbb27704ca3ee0bd633ed06b,
+        type: 3}
       propertyPath: imediateChilds.Array.size
       value: 3
       objectReference: {fileID: 0}
