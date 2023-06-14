@@ -10,12 +10,17 @@ public class Player : MonoBehaviour
     
     public float speed;
     public float jumpForce;
+    [SerializeField] private bool hasDoubleJump = false;
     public Rigidbody rig;
+    [SerializeField] private bool isGrounded;
+    [SerializeField] private bool canDoubleJump = false;
 
     [SerializeField] private float completionRadius = 2.5f;
     [SerializeField] private LayerMask goalLayer;
+    private float jumpBuffer;
     
     float direction;
+    
 
     private void Awake() {
         if (Instance != null) {
@@ -24,19 +29,34 @@ public class Player : MonoBehaviour
         }
 
         Instance = this;
-        /*
-        if (GameManager.Instance.nextSpawnPos == Vector3.zero) return;
-
-        this.transform.position = GameManager.Instance.nextSpawnPos;*/
     }
-    
-    void Update()
-    {
+
+    private void Start() {
+        speed += GameManager.Instance.moveBonus;
+        jumpForce += GameManager.Instance.jumpBonus;
+        hasDoubleJump = GameManager.Instance.hasDoubleJump;
+    }
+
+    void Update() {
+        if (jumpBuffer > 0) jumpBuffer -= Time.deltaTime;
+        
+        if (Physics.Raycast(transform.position, Vector3.down, 1.1f) && jumpBuffer <= 0) {
+            isGrounded = true;
+        }
+        
         direction = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rig.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            jumpBuffer = .2f;
+            isGrounded = false;
+            if (hasDoubleJump) canDoubleJump = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && canDoubleJump && jumpBuffer <= 0) {
+            rig.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            canDoubleJump = false;
         }
 
 

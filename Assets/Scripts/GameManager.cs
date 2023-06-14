@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
     public string boughtUpgrades = "";
     
     public int currentCoins;
+    public bool hasDoubleJump = false;
+    public int jumpBonus = 0;
+    public int moveBonus = 0;
+    public int coinBonus = 1;
+    
     
     public Vector3 nextSpawnPos = Vector3.zero;
 

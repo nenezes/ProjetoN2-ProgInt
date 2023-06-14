@@ -396,7 +396,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447350630}
   m_LocalRotation: {x: 0.13052616, y: 0.0000011487497, z: -0.000008725623, w: 0.9914449}
-  m_LocalPosition: {x: -23.92, y: 7.4, z: -19.272127}
+  m_LocalPosition: {x: -23.92, y: 7.4, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -429,7 +429,7 @@ PrefabInstance:
     - target: {fileID: 7459148291257795927, guid: a77c4fc628f86244a8c3db17c567c0e5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 6.52
       objectReference: {fileID: 0}
     - target: {fileID: 7459148291257795927, guid: a77c4fc628f86244a8c3db17c567c0e5,
         type: 3}
@@ -643,7 +643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742857348}
   m_LocalRotation: {x: 0.13052616, y: 0.0000011487497, z: -0.000008725623, w: 0.9914449}
-  m_LocalPosition: {x: -23.92, y: 7.4, z: -19.272127}
+  m_LocalPosition: {x: -23.92, y: 7.4, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -680,7 +680,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851751425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.92, y: 3.4, z: -6.272127}
+  m_LocalPosition: {x: -23.92, y: 3.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -716,7 +716,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   jumpForce: 7
+  hasDoubleJump: 0
   rig: {fileID: 1851751429}
+  isGrounded: 0
+  canDoubleJump: 0
   completionRadius: 2.5
   goalLayer:
     serializedVersion: 2

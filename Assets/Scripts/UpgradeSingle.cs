@@ -14,6 +14,7 @@ public class UpgradeSingle : MonoBehaviour
     [SerializeField] private List<UpgradeSingle> imediateChilds;
     [SerializeField] private int upgradeCost;
     [SerializeField] private TextMeshProUGUI upgradeCostText;
+    [SerializeField] private UpgradeModifier myModifier;
     
     private void Awake() {
         myButton = GetComponent<Button>();
@@ -57,6 +58,32 @@ public class UpgradeSingle : MonoBehaviour
     private void BuyUpgrade() {
         GameManager.Instance.boughtUpgrades = $"{GameManager.Instance.boughtUpgrades}, {upgradeID}";
         GameManager.Instance.currentCoins -= upgradeCost;
+        ApplyModifier();
         IsBought();
     }
+
+    private void ApplyModifier() {
+        switch (myModifier) {
+            case UpgradeModifier.DoubleJump:
+                GameManager.Instance.hasDoubleJump = true;
+                break;
+            case UpgradeModifier.Jump:
+                GameManager.Instance.jumpBonus++;
+                break;
+            case UpgradeModifier.Coin:
+                GameManager.Instance.coinBonus++;
+                break;
+            case UpgradeModifier.Move:
+                GameManager.Instance.moveBonus++;
+                break;
+        }
+    }
+}
+
+public enum UpgradeModifier
+{
+    Jump,
+    Move,
+    Coin,
+    DoubleJump
 }

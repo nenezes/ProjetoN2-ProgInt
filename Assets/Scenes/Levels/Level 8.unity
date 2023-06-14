@@ -439,7 +439,7 @@ PrefabInstance:
     - target: {fileID: 4580881505744797180, guid: 4c32023a7bfe2b74894383f9e2d681eb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4580881505744797180, guid: 4c32023a7bfe2b74894383f9e2d681eb,
         type: 3}
@@ -716,7 +716,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   jumpForce: 7
+  hasDoubleJump: 0
   rig: {fileID: 1851751429}
+  isGrounded: 0
+  canDoubleJump: 0
   completionRadius: 2.5
   goalLayer:
     serializedVersion: 2
